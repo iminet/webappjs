@@ -7,7 +7,7 @@ class AppBase {
         this.config = config;
 
         this.appname = config.appname ?? "WebApp";
-        this.version = config.version ?? "1.0.2";
+        this.version = config.version ?? "1.0.3";
         this.location = window.location;
         this.debug = config.debug === true;
         this.Json = "";
