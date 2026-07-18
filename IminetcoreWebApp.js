@@ -9,6 +9,7 @@ class AppBase {
         this.appname = config.appname ?? "WebApp";
         this.version = config.version ?? "1.0.2";
         this.location = window.location;
+        this.debug = config.debug === true;
         this.Json = "";
 
         this.token = config.token ?? document.querySelector('meta[name="app-token"]')?.content ?? "";
@@ -29,9 +30,19 @@ class AppBase {
     }
 
     init() {
-        console.log("App initialized");
-        console.log("Base URL: " + this.base_url);
+        //console.log("App initialized");
+        //console.log("Base URL: " + this.base_url);
+        console.log(`App "${this.appname}" initialized`);
+        console.log(`Base URL: ${this.base_url}`);
         this.ui.bindUI();
+    }
+
+    debug(...args) {
+        if (this.debug !== true) {
+            return;
+        }
+
+        console.log(`[${this.appname}]`, ...args);
     }
 
     bindUI() {
